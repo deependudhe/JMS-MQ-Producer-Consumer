@@ -1,5 +1,6 @@
 package com.monarch.jms;
 
+import com.monarch.jms.consumer.Consumer;
 import com.monarch.jms.producer.Producer;
 
 import javax.jms.JMSException;
@@ -27,9 +28,11 @@ public class Main {
         }
 
         Producer producer = new Producer();
+        Consumer consumer = new Consumer();
 
         try {
             producer.sendMessage();
+            consumer.receiveMessage();
             recordSuccess();
         } catch (Exception e) {
             recordFailure(e);
